@@ -1,0 +1,8 @@
+# Russian strings go here for Rails i18n
+ru:
+  # my_label: "My label"
+  уour_file_has_been_prepared_for_download: "Сгенерирован файл настройки VPN: "
+  your_file_hast_been_prepared: "Ошибка при генерации файла."
+  label_ovpn_access_key: Ключи доступа Open VPN
+  generate_ovpn_key: Получить OVPN-ключ
+  download_ovpn_key: Скачать OVPN-ключ
