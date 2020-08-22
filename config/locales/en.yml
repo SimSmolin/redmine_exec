@@ -3,6 +3,6 @@ en:
   # my_label: "My label"
   уour_file_has_been_prepared_for_download: "Your VPN file has been prepared for download:"
   your_file_hast_been_prepared: "Your VPN file has't been prepared."
-  label_ovpn_access_key: Open VPN access key
-  generate_ovpn_key: Generate OVPN-key
-  download_ovpn_key: Downoad OVPN-key
+  label_ovpn_access_key: OpenVPN access key
+  generate_ovpn_key: Generate OpenVPN-key
+  download_ovpn_key: Downoad OpenVPN-key
