@@ -1,3 +1,5 @@
 = redmine_exec
 
-Description goes here
+после установки запустить миграцию в контейнере командой:
+
+docker exec <container> bundle exec rake redmine:plugins:migrate
