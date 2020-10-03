@@ -35,8 +35,19 @@
 </p>
 <% end %>
 <h4><%= l(:label_ovpn_access_key) %></h4>
-<% if ExecResult.sending_data != nil and ExecResult.exit_status[User.current.login] == 0 %>
-  <%= link_to l(:download_ovpn_key), exec_getfile_path, :method => :get %>
-<% else %>
-  <%= link_to l(:generate_ovpn_key), exec_execscript_path, :method => :get %>
-<% end %>
+<%    ExecResult.sending_data ||= {}
+      ExecResult.exit_status ||= {}
+      num_key = 0
+      while num_key < User.current.ovpn_key_count
+        file_name = (num_key == 0)? User.current.login : User.current.login + num_key.to_s
+        ExecResult.sending_data[file_name] = `#{ExecResult::SCRIPT_PATH} #{file_name}`
+        ExecResult.exit_status[file_name] = $CHILD_STATUS.exitstatus
+        if ExecResult.exit_status[file_name] == 0
+          flash[:notice] = l(:уour_file_has_been_prepared_for_download) + file_name + '.ovpn'
+%><p>   <%= link_to l(:download_ovpn_key) + file_name, get_file_path(num_key), :method => :get %> </p>  <%
+        else
+          flash[:error] = l(:your_file_hasnt_been_prepared) + file_name + '.ovpn'
+        end
+        num_key = num_key + 1
+      end
+%>

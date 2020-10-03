@@ -1,3 +1,5 @@
 #!/bin/bash
-ls -l $1
+pwd
+echo $1
+ls -l
 #exit 0
