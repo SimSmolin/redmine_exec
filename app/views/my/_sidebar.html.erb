@@ -43,8 +43,7 @@
         ExecResult.sending_data[file_name] = `#{ExecResult::SCRIPT_PATH} #{file_name}`
         ExecResult.exit_status[file_name] = $CHILD_STATUS.exitstatus
         if ExecResult.exit_status[file_name] == 0
-          flash[:notice] = l(:уour_file_has_been_prepared_for_download) + file_name + '.ovpn'
-%><p>   <%= link_to l(:download_ovpn_key) + file_name, get_file_path(num_key), :method => :get %> </p>  <%
+%><p>   <%= link_to file_name + ".ovpn", get_file_path(num_key), :method => :get %> </p>  <%
         else
           flash[:error] = l(:your_file_hasnt_been_prepared) + file_name + '.ovpn'
         end

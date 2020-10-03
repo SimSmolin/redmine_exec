@@ -7,8 +7,8 @@ module UserPatch # :nodoc:
       unloadable
       safe_attributes 'ovpn_key_count'
 
-      # validates_length_of :ovpn_key_count, :maximum => 1
-      validates_inclusion_of :ovpn_key_count, in: 0..5, message: "value %{value} is not in the range 0..5"
+      validates_length_of :ovpn_key_count, :maximum => 1, message: "value %{value} is not in the range 0..5"
+      validates_format_of :ovpn_key_count, :with => /\A[0-5]/, message: "value %{value} is not in the range 0..5"
     end
   end
 
