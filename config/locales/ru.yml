@@ -1,8 +1,11 @@
 # Russian strings go here for Rails i18n
 ru:
   # my_label: "My label"
-  уour_file_has_been_prepared_for_download: "Сгенерирован файл настройки VPN: "
-  your_file_hasnt_been_prepared: "Ошибка при генерации файла настройки VPN: "
+  уour_file_has_been_prepared_for_download: "Сгенерирован файл настройки OpenVPN: "
+  your_file_hasnt_been_prepared: "Ошибка при генерации файла настройки OpenVPN: "
   label_ovpn_access_key: Ключи доступа OpenVPN
   download_ovpn_key: "Скачать настройки OpenVPN: "
-  field_ovpn_key_count: "Число OVPN ключей"
+  field_ovpn_key_count: "Число OpenVPN ключей"
+  redmine_exec_identity_file: "Переменная окружения IDENTITY_FILE"
+  redmine_exec_ovpn_host: "Переменная окружения OVPN_HOST"
+  redmine_exec_ovpn_path: "Переменная окружения OVPN_PATH"

@@ -1,0 +1,23 @@
+<table>
+  <tbody>
+  <tr>
+    <th><%= l(:redmine_exec_identity_file) %></th>
+    <td>
+      <%= text_field_tag(:months_ago, settings['redmine_exec_identity_file'], {:size => 33, :name => "settings[redmine_exec_identity_file]"}) %> 
+    </td>
+  </tr>
+  <tr>
+    <th><%= l(:redmine_exec_ovpn_host) %></th>
+    <td>
+      <%= text_field_tag(:months_ago, settings['redmine_exec_ovpn_host'], {:size => 33, :name => "settings[redmine_exec_ovpn_host]"}) %>
+    </td>
+  </tr>
+  <tr>
+    <th><%= l(:redmine_exec_ovpn_path) %></th>
+    <td>
+      <%= text_field_tag(:months_ago, settings['redmine_exec_ovpn_path'], {:size => 33, :name => "settings[redmine_exec_ovpn_path]"}) %>
+    </td>
+  </tr>
+  </tbody>
+</table>
+

@@ -37,15 +37,18 @@
 <h4><%= l(:label_ovpn_access_key) %></h4>
 <%    ExecResult.sending_data ||= {}
       ExecResult.exit_status ||= {}
+      identity_file = Setting.plugin_redmine_exec['redmine_exec_identity_file']
+      ovpn_host = Setting.plugin_redmine_exec['redmine_exec_ovpn_host']
+      ovpn_path = Setting.plugin_redmine_exec['redmine_exec_ovpn_path']
       num_key = 0
       while num_key < User.current.ovpn_key_count
         file_name = (num_key == 0)? User.current.login : User.current.login + num_key.to_s
-        ExecResult.sending_data[file_name] = `#{ExecResult::SCRIPT_PATH} #{file_name}`
+        ExecResult.sending_data[file_name] = `IDENTITY_FILE=#{identity_file} OVPN_HOST=#{ovpn_host} OVPN_PATH=#{ovpn_path} OVPN_FILE=#{file_name}.ovpn #{ExecResult::SCRIPT_PATH}`
         ExecResult.exit_status[file_name] = $CHILD_STATUS.exitstatus
         if ExecResult.exit_status[file_name] == 0
 %><p>   <%= link_to file_name + ".ovpn", get_file_path(num_key), :method => :get %> </p>  <%
         else
-          flash[:error] = l(:your_file_hasnt_been_prepared) + file_name + '.ovpn'
+          flash[:error] = '[' + $CHILD_STATUS.exitstatus.to_s + '] ' + l(:your_file_hasnt_been_prepared) + file_name + '.ovpn'
         end
         num_key = num_key + 1
       end
