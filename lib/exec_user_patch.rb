@@ -1,6 +1,6 @@
 require_dependency 'user'
 
-module UserPatch # :nodoc:
+module ExecUserPatch # :nodoc:
   def self.included(base)
 
     base.class_eval do

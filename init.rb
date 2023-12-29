@@ -1,11 +1,11 @@
 require 'redmine'
 require 'i18n'
-require_relative 'lib/user_patch'
+require_relative 'lib/exec_user_patch'
 
 reloader = defined?(ActiveSupport::Reloader) ? ActiveSupport::Reloader : ActionDispatch::Reloader
 
 reloader.to_prepare do
-  User.send :include, UserPatch
+  User.send :include, ExecUserPatch
 end
 
 Redmine::Plugin.register :redmine_exec do
