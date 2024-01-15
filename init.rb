@@ -12,7 +12,7 @@ Redmine::Plugin.register :redmine_exec do
   name 'Redmine Exec plugin'
   author 'Sergey Melnikov'
   description 'execute shell script and download result'
-  version '0.0.2'
+  version '0.0.3'
   url 'http://example.com/path/to/plugin'
   author_url 'https://github.com/SimSmolin'
 
